@@ -1,0 +1,17 @@
+{
+  "name": "fastify-prometheus-grafana",
+  "version": "1.0.0",
+  "description": "一個簡單的生產環境，使用 Fastify、Prometheus 和 Grafana",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js"
+  },
+  "dependencies": {
+    "fastify": "^4.0.0",
+    "prom-client": "^14.0.0"
+  },
+  "keywords": ["fastify", "prometheus", "grafana"],
+  "author": "",
+  "license": "ISC"
+}
