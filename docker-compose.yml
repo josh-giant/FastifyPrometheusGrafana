@@ -33,6 +33,3 @@ networks:
 
 volumes:
   grafana_data:
-
-volumes:
-  grafana_data:
