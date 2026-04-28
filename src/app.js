@@ -20,6 +20,25 @@ const httpRequestCounter = new promClient.Counter({
   registers: [register]
 });
 
+// Create a custom memory usage gauge metric
+const memoryUsageGauge = new promClient.Gauge({
+  name: 'fastify_memory_usage_bytes',
+  help: 'Node.js memory usage in bytes',
+  labelNames: ['type'],
+  registers: [register]
+});
+
+const updateMemoryUsage = () => {
+  const mem = process.memoryUsage();
+  memoryUsageGauge.set({ type: 'rss' }, mem.rss);
+  memoryUsageGauge.set({ type: 'heapTotal' }, mem.heapTotal);
+  memoryUsageGauge.set({ type: 'heapUsed' }, mem.heapUsed);
+  memoryUsageGauge.set({ type: 'external' }, mem.external);
+};
+
+updateMemoryUsage();
+setInterval(updateMemoryUsage, 5000);
+
 // 註冊指標端點
 fastify.get('/metrics', async (request, reply) => {
   reply.header('Content-Type', register.contentType);

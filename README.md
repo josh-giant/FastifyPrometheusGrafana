@@ -40,7 +40,7 @@
 
 1. 使用 admin/admin 登入 Grafana。
 2. 添加 Prometheus 作為資料來源：URL `http://prometheus:9090`
-3. 從 `config/grafana-dashboard.json` 匯入儀表板，以視覺化如 `http_requests_total` 和 CPU 使用率的指標。
+3. 從 `config/grafana-dashboard.json` 匯入儀表板，以視覺化如 `http_requests_total`、CPU 使用率、記憶體使用量和 API 請求總次數的指標。
 
 ## 自定義指標
 
